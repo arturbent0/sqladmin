@@ -636,10 +636,11 @@ class Admin(BaseAdminView):
             raise HTTPException(status_code=404)
 
         Form = await model_view.scaffold_form(model_view._form_edit_rules)
+        initial_data = await model_view.get_form_data_for_edit(model)
         context = {
             "obj": model,
             "model_view": model_view,
-            "form": Form(obj=model, data=self._normalize_wtform_data(model)),
+            "form": Form(data=initial_data),
         }
 
         if request.method == "GET":
@@ -782,7 +783,7 @@ class Admin(BaseAdminView):
         there's no way to show current file of object.
         """
 
-        form = await request.form()
+        form = await request.form(max_fields=float("inf"))
         form_data: list[tuple[str, str | UploadFile]] = []
         for key, value in form.multi_items():
             if not isinstance(value, UploadFile):
