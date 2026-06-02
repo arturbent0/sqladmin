@@ -3,8 +3,8 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      <div class="d-flex">
-        <div class="flex-grow-1 me-2">
+      <div class="d-flex min-w-0">
+        <div class="flex-grow-1 me-2 min-w-0">
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">{{ model_view.name_plural }}</h3>
@@ -238,7 +238,7 @@
           </div>
         </div>
         {% if model_view.get_filters() %}
-        <div class="col-md-3" style="width: 300px; flex-shrink: 0;">
+        <div class="col-md-3 filter-sidebar-col">
           <div id="filter-sidebar" class="card">
             <div class="card-header">
               <h3 class="card-title">Filters</h3>

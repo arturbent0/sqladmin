@@ -4,9 +4,51 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Version 0.27.0 - 2026-05-29
+
+### Added
+* feat: make admin logo width and height configurable (closes #1045) by @SAY-5 in https://github.com/smithyhq/sqladmin/pull/1052
+* Feature: `after_model_change` response by @dhcsousa in https://github.com/smithyhq/sqladmin/pull/1030
+* Create form_details_query by @MaximDementyev in https://github.com/smithyhq/sqladmin/pull/1038
+
+### Fixed
+* fix(list): fix the list view to limit the page width to viewport size by @CHC383 in https://github.com/smithyhq/sqladmin/pull/1056
+* fix: forward kwargs to SessionMiddleware in AuthenticationBackend by @vahidzhe in https://github.com/smithyhq/sqladmin/pull/1036
+* Fixed overriding form_args in forms.py and widgets.py by @mmzeynalli in https://github.com/smithyhq/sqladmin/pull/1044
+
+### Docs
+* Docs: add contributing page to documentation site by @vahidzhe in https://github.com/smithyhq/sqladmin/pull/1034
+
+
+## New Contributors
+* @CHC383 made their first contribution in https://github.com/smithyhq/sqladmin/pull/1056
+* @SAY-5 made their first contribution in https://github.com/smithyhq/sqladmin/pull/1052
+* @dhcsousa made their first contribution in https://github.com/smithyhq/sqladmin/pull/1030
+
+**Full Changelog**: https://github.com/smithyhq/sqladmin/compare/0.26.0...0.27.0
+
+## Version 0.26.0 - 2025-05-16
+
+### Fixed
+* Drop Python 3.9 by @aminalaee in #1047
+* Migrate to Zensical by @aminalaee in #1048
+
+**Full Changelog**: https://github.com/smithyhq/sqladmin/compare/0.25.1...0.26.0
+
+## Verion 0.25.1 - 2026-05-16
+
+### Fixed
+* fix: authenticate ajax lookup endpoint by @vahidzhe in https://github.com/smithyhq/sqladmin/pull/1035
+* fix: Authorization bypass on `ajax_lookup`
+
+## New Contributors
+* @vahidzhe made their first contribution in https://github.com/smithyhq/sqladmin/pull/1035
+
+**Full Changelog**: https://github.com/smithyhq/sqladmin/compare/0.25.0...0.25.1
+
 ## Verion 0.25.0 - 2026-04-18
 
-## Added
+### Added
 * Move to org by @aminalaee in https://github.com/smithyhq/sqladmin/pull/1018
 * extra blocks for templates allowing customization by @birddevelper in https://github.com/smithyhq/sqladmin/pull/952
 * Add template hooks to all filters for customizable UIs (dropdowns, sliders, etc.) by @fd-oncodna in https://github.com/smithyhq/sqladmin/pull/970
@@ -17,7 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Quality of Life updates by @mmzeynalli in https://github.com/smithyhq/sqladmin/pull/1026
 * [Feature] Check the available primary actions (edit, delete, view details) for each row on listing page. by @maxim-f1 in https://github.com/smithyhq/sqladmin/pull/874
 
-## Fixed
+### Fixed
 * Fix #841: Cannot update value of attribute with reserved name when it starts empty/null by @mmzeynalli in https://github.com/smithyhq/sqladmin/pull/1028
 * Fix TypeError with UUID primary keys in issubclass check by @S3wnkin in https://github.com/smithyhq/sqladmin/pull/992
 * core: fix ambiguous column error when searching or sorting by @nurikk in https://github.com/smithyhq/sqladmin/pull/983

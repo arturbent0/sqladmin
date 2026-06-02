@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git config *)",
+      "Bash(.venv/bin/ruff check *)",
+      "Bash(wsl *)"
+    ]
+  }
+}

@@ -7,7 +7,7 @@
       <h1 class="navbar-brand navbar-brand-autodark">
         <a href="{{ url_for('admin:index') }}">
           {% if admin.logo_url %}
-          <img src="{{ admin.logo_url }}" width="64" height="64" alt="{{ admin.title }}" />
+          <img src="{{ admin.logo_url }}" width="{{ admin.logo_width }}" height="{{ admin.logo_height }}" alt="{{ admin.title }}" class="navbar-brand-logo" />
           {% else %}
           <h3>{{ admin.title }}</h3>
           {% endif %}
@@ -47,9 +47,12 @@
       <div class="container-fluid">
         <div class="row row-deck row-cards">
           {% block content %} {% endblock %}
-	      {% block flash %}
-		  {% include 'sqladmin/flash.html' %}
-		  {% endblock %}
+          {% block flash %}
+          {% include 'sqladmin/flash.html' %}
+          {% endblock %}
+          {% block secret_modal %}
+          {% include 'sqladmin/secret_modal.html' %}
+          {% endblock %}
         </div>
       </div>
     </div>
