@@ -122,14 +122,12 @@ $(':input[data-role="datetimepicker"]:not([readonly])').each(function () {
 
 // Ajax Refs
 $(':input[data-role="select2-ajax"]').each(function () {
-  var allowBlank = !!$(this).data("allowBlank");
-  var isMultiple = !!$(this).prop("multiple");
-  var placeholderText = $(this).attr("placeholder") || "Search";
-  var originalName = $(this).attr("name");
+  var $select = $(this);
 
-  var $hiddenInput = $('<input type="hidden">').attr("name", originalName);
-  $(this).after($hiddenInput);
-  $(this).removeAttr("name");
+  var allowBlank = !!$select.data("allowBlank");
+  var isMultiple = !!$select.prop("multiple");
+  var placeholderText = $select.attr("placeholder") || "Search";
+  var originalName = $select.attr("name");
 
   var select2AjaxOptions = {
     minimumInputLength: 1,
@@ -150,31 +148,15 @@ $(':input[data-role="select2-ajax"]').each(function () {
     select2AjaxOptions.allowClear = true;
   }
 
-  $select.on('change', function () {
-    var val = $select.val();
-    if (Array.isArray(val)) {
-      $hiddenInput.val(val.join(','));
-    } else {
-      $hiddenInput.val(val || '');
-    }
-  });
+  $select.select2(select2AjaxOptions);
 
-  $(this).on('change', function () {
-    var val = $(this).val();
-    if (Array.isArray(val)) {
-      $hiddenInput.val(val.join(','));
-    } else {
-      $hiddenInput.val(val || '');
-    }
-  });
-
-  var existing_data = $(this).data("json") || [];
+  var existing_data = $select.data("json") || [];
   existing_data.forEach(function (data) {
     var option = new Option(data.text, data.id, true, true);
-    $(this).append(option);
+    $select.append(option);
   });
 
-  $(this).trigger('change');
+  $select.trigger('change');
 });
 
 
